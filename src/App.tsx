@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './App.scss'
 
 function App() {
   const [imc, setImc] = useState(0);
@@ -31,9 +31,14 @@ function App() {
 
   return (
     <>
-      <h1 onClick={() => calcImc(70, 1.70)}>Calculadora de IMC</h1>
+      <h1 >Calculadora de IMC</h1>
       <div className="card">
-
+        <span>Informe seu peso (kg)</span>
+        <input type="text" />
+        <span>Informe sua altura (metro e cm)</span>
+        <input type="text" />
+        <p>{imcStatus}</p>
+        <button onClick={() => calcImc(70, 1.70)}>CALCULAR</button>
       </div>
     </>
   )
