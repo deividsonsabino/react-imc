@@ -6,7 +6,16 @@
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
     padding: 2em;
+    span {
+        text-align: left;
+    }
+    input {
+        height: 40px;
+        margin: 10px 0px;
+    }
 }
 
 .read-the-docs {
