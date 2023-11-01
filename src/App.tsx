@@ -2,10 +2,12 @@ import { useState } from 'react'
 import './App.scss'
 
 function App() {
+  const [height, setHeight] = useState("");
+  const [width, setWidth] = useState("");
   const [imc, setImc] = useState(0);
   const [imcStatus, setImcStatus] = useState("");
 
-  function calcImc(width: number, height: number): void {
+  function calcImc() {
     const imcValue = Number((width / (height * height)).toFixed(2))
     console.log(imc)
     if (imcValue > 0) {
@@ -34,11 +36,17 @@ function App() {
       <h1 >Calculadora de IMC</h1>
       <div className="card">
         <span>Informe seu peso (kg)</span>
-        <input type="text" />
+        <input
+          value={width}
+          onChange={(e) => setWidth(e.target.value)}
+        />
         <span>Informe sua altura (metro e cm)</span>
-        <input type="text" />
+        <input
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+        />
         <p>{imcStatus}</p>
-        <button onClick={() => calcImc(70, 1.70)}>CALCULAR</button>
+        <button onClick={calcImc}>CALCULAR</button>
       </div>
     </>
   )
